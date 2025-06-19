@@ -1,0 +1,24 @@
+// 1. Importar funciones de Bootstrap ANTES de usar mapas
+@import "../../../../node_modules/bootstrap/scss/functions";
+
+// 2. Tus colores personalizados
+$deep-burgundy: #220901;
+$dark-chocolate: #621708;
+$red-fire: #941B0C;
+$burnt-orange: #BC3908;
+$golden-sunset: #F6AA1C;
+
+$custom-theme-colors: (
+  "deep-burgundy": $deep-burgundy,
+  "dark-chocolate": $dark-chocolate,
+  "red-fire": $red-fire,
+  "burnt-orange": $burnt-orange,
+  "golden-sunset": $golden-sunset
+);
+
+// 3. Merge con $theme-colors DESPUÉS de definir los colores pero ANTES del resto
+@import "../../../../node_modules/bootstrap/scss/variables";
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// 4. Finalmente, importar el resto de Bootstrap
+@import "../../../../node_modules/bootstrap/scss/bootstrap";

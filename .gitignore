@@ -1,0 +1,73 @@
+# Raíz del monorepo
+/.env
+/.env.*
+!.env.example
+/node_modules
+/.npm
+/.cache
+.DS_Store
+*.log
+logs
+.idea
+.vscode
+dist
+build
+coverage
+*.tmp
+*.bak
+
+# Dependencias
+**/node_modules
+**/package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
+
+# Entornos
+**/.env
+**/.env.local
+**/.env.development
+**/.env.test
+**/.env.production
+!.env.example
+
+# Backend (Express)
+apps/backend/dist/
+apps/backend/.env
+apps/backend/.env.*
+apps/backend/*.log
+apps/backend/logs/
+apps/backend/database.sqlite
+apps/backend/database.sqlite-journal
+
+# Frontend (Vite)
+apps/frontend/dist/
+apps/frontend/.env
+apps/frontend/.env.*
+apps/frontend/*.log
+apps/frontend/.vite
+apps/frontend/.vitepress/cache
+
+# Paquetes compartidos
+packages/*/dist/
+packages/*/.env
+
+# Docker
+docker-compose.override.yml
+**/.dockerignore
+**/Dockerfile.dev
+
+# Testing
+**/__snapshots__
+**/vitest_*
+
+# Editor/IDE
+.idea
+.vscode
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Sistema
+.DS_Store
+Thumbs.db
