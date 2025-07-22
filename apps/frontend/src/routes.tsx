@@ -5,6 +5,8 @@ import Jonas from "./pages/Jonas";
 import Steffany from "./pages/Steffany";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+import EditCasamientos from "./pages/EditCasamientos";
+import Ventas from "./pages/Ventas";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/casamiento",
         element: <Steffany />,
+      },
+      {
+        path: "/editcasamiento",
+        element: <EditCasamientos />,
+      },
+      {
+        path: "/ventas",
+        element: <Ventas />,
       },
     ],
   },

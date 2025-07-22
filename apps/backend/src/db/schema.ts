@@ -87,11 +87,12 @@ export const sales = mysqlTable('sales', {
     id: int('id').primaryKey().autoincrement(),
     description: varchar('description', { length: 100 }),
     date: datetime('date'),
-    cashbox_id: int('cashbox_id').notNull(),
-    user_id: int('user_id').notNull(),
+    user_id: int('user_id'),
+    monto: varchar('monto', {length: 45}),
+    id_casamiento: int('id_casamiento'),
 }, (table) => ({
-    idx_cashbox: index('fk_sales_cashbox1_idx').on(table.cashbox_id),
     idx_user: index('fk_sales_users1_idx').on(table.user_id),
+    idx_casamientos: index('fk_sales_casamientos1_idx').on(table.id_casamiento),
 }));
 
 // Tabla sales_details
@@ -108,6 +109,7 @@ export const sales_details = mysqlTable('sales_details', {
 export const casamientos = mysqlTable('casamientos', {
     id: int('id').primaryKey().autoincrement(),
     persona1: varchar('persona_1', { length: 45 }).notNull(),
-    persona2: varchar('persona_2', { length: 45 }).notNull()
+    persona2: varchar('persona_2', { length: 45 }).notNull(),
+    fecha: varchar('fecha', {length: 45})
 });
   

@@ -1,13 +1,14 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { login } from 'src/controller/auth.controller';
-import { createCasamiento, getAllCasamientos } from 'src/controller/casamientos.controller';
+import { createCasamiento, deleteCasamiento, getAllCasamientos, updateCasamiento } from 'src/controller/casamientos.controller';
 import {
   createProduct,
   deleteProduct,
   getAllProducts,
   updateProduct,
 } from 'src/controller/product.controller';
+import { createSale, deleteSale, getAllSales, updateSale } from 'src/controller/sales.controller';
 import verifyToken from 'src/middleware/auth';
 
 const router = Router();
@@ -38,5 +39,12 @@ router.delete('/products/:id', verifyToken, deleteProduct);
 
 router.get('/casamientos', getAllCasamientos);
 router.post('/casamientos', createCasamiento);
+router.put('/editcasamiento/:id', updateCasamiento);
+router.delete('/deletecasamiento/:id', deleteCasamiento);
+
+router.get('/ventas', getAllSales);
+router.post('/ventas', createSale);
+router.put('/ventas/:id', updateSale);
+router.delete('/ventas/:id', deleteSale);
 
 export default router;

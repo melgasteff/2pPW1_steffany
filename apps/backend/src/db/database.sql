@@ -71,14 +71,22 @@ CREATE TABLE IF NOT EXISTS `todo`.`sales` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(100) NULL DEFAULT NULL,
   `date` DATETIME NULL DEFAULT NULL,
-  `cashbox_id` INT(11) NOT NULL,
   `user_id` INT(11) NOT NULL,
+  `id_casamiento` INT(11) NOT NULL,
+  
   PRIMARY KEY (`id`),
-  INDEX `fk_sales_cashbox1_idx` (`cashbox_id` ASC) VISIBLE,
+  
   INDEX `fk_sales_users1_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `fk_sales_cashbox1` FOREIGN KEY (`cashbox_id`) REFERENCES `todo`.`cashbox` (`id`),
-  CONSTRAINT `fk_sales_users1` FOREIGN KEY (`user_id`) REFERENCES `todo`.`users` (`id`)
-) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+  INDEX `fk_sales_casamiento1_idx` (`id_casamiento` ASC) VISIBLE,
+  
+  CONSTRAINT `fk_sales_users1`
+    FOREIGN KEY (`user_id`) REFERENCES `todo`.`users` (`id`),
+    
+  CONSTRAINT `fk_sales_casamiento1`
+    FOREIGN KEY (`id_casamiento`) REFERENCES `todo`.`casamiento` (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `todo`.`sales_details` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
